@@ -1,3 +1,4 @@
+import { ProdutoService } from './../services/domain/produto.service';
 import { ClienteService } from './../services/domain/cliente.service';
 import { StorageService } from './../services/storage.service';
 import { AuthService } from './../services/auth.service';
@@ -32,11 +33,12 @@ import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     CategoriaService,
+    AuthInterceptorProvider,
+    ErrorInterceptorProvider,
     AuthService,
     StorageService,
     ClienteService,
-    AuthInterceptorProvider,
-    ErrorInterceptorProvider
+    ProdutoService
   ]
 })
 export class AppModule { }
