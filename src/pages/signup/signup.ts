@@ -35,7 +35,7 @@ export class SignupPage {
       logradouro: ['Rua Via', [Validators.required]],
       numero: ['25', [Validators.required]],
       complemento: ['Apto 3', []],
-      bairro: ['Copacabana', []],
+      bairro: ['Copacabana', [Validators.required]],
       cep: ['10828333', [Validators.required]],
       telefone1: ['977261827', [Validators.required]],
       telefone2: ['', []],
