@@ -48,13 +48,13 @@ export class ErrorInterceptor implements HttpInterceptor {
 
     handle403() {
         this.storage.setLocalUser(null);
-        let alert = this.alertCtl.create({
+        /**let alert = this.alertCtl.create({
             title: 'Erro 403',
             message: 'Acesso Negado',
             enableBackdropDismiss: false,
             buttons: [{ text: 'OK' }]
         });
-        alert.present();
+        alert.present();**/
     }
 
     handle401() {
