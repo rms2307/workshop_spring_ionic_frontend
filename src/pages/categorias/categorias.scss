@@ -1,3 +1,24 @@
 page-categorias {
+    img{
+        height: 120px;
+        align-self: center;
+        margin: auto;
+        display: block;
+        padding: 10px;
+    }
 
+    .nolinebreak{
+        float: left;
+        padding-right: 20px;
+    }
+
+    .hor{
+        color: green;
+        font-style: italic;
+        text-align: center;
+    }
+
+    .cat{
+        color: grey;
+    }
 }

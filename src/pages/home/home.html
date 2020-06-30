@@ -1,20 +1,23 @@
 <ion-content padding>
-  <h3 class="title">Hortifruti</h3>
-
   <img src="assets/imgs/home.JPG" alt="logo">
 
   <form>
     <ion-item>
-      <ion-label stacked>Email</ion-label>
+      <ion-label class="font" stacked>
+        <h2><strong>Email:</strong></h2>
+      </ion-label>
       <ion-input [(ngModel)]="creds.email" name="email" type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label stacked>Senha</ion-label>
+      <ion-label stacked>
+        <h2><strong>Senha:</strong></h2>
+      </ion-label>
       <ion-input [(ngModel)]="creds.senha" name="senha" type="password"></ion-input>
     </ion-item>
+    <p></p>
     <button ion-button block (click)="login()">Entrar</button>
   </form>
-
+  <p></p>
   <button ion-button block outline (click)="signup()">Cadastrar</button>
 
 </ion-content>
