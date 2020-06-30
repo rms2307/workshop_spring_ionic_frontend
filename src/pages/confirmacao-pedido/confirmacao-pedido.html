@@ -24,7 +24,6 @@
         <p class="nolinebreak">{{item.quantidade}}</p>
         <p item-end>{{item.produto.preco * item.quantidade | currency}}</p>
       </ion-item>
-
       <ion-item>
         <h2>Total</h2>
         <h2 item-end>{{total() | currency}}</h2>
@@ -46,7 +45,6 @@
     <ion-card-header>
       Endereço de entrega
     </ion-card-header>
-
     <ion-item>
       <h2>{{endereco?.logradouro}}, {{endereco?.numero}}</h2>
       <p>{{endereco?.complemento}} {{endereco?.bairro}} CEP {{endereco?.cep}}</p>
@@ -58,7 +56,6 @@
     <ion-card-header>
       Pagamento
     </ion-card-header>
-
     <ion-item *ngIf="pedido.pagamento['@type']=='pagamentoComCartao'">
       <h3>Pagamento com cartão</h3>
       <p>Parcelas: {{pedido.pagamento.numeroDeParcelas}}</p>
@@ -67,4 +64,8 @@
       <h3>Pagamento com boleto</h3>
     </ion-item>
   </ion-card>
+
+  <button ion-button block (click)="fecharPedido()">Confirmar Pedido</button>
+  <button ion-button block outline (click)="back()">Voltar</button>
+
 </ion-content>

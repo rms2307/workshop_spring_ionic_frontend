@@ -23,12 +23,12 @@
     </ion-item>
     <ion-item *ngIf="total() > 0">
       <h2>Total</h2>
-      <h2 item-end>{{total()}}</h2>
+      <h2 item-end>{{total() | currency}}</h2>
     </ion-item>
     <ion-item *ngIf="total() <= 0">
       <h2 class="cartempty">Seu carrinho está vazio</h2>
     </ion-item>
   </ion-list>
   <button ion-button block (click)="goOn()">Continuar Comprando</button>
-  <button ion-button block color="secondary" (click)="finalizaPedido()">Finalizar pedido</button>
+  <button *ngIf="total() > 0" ion-button block color="secondary" (click)="finalizaPedido()">Finalizar pedido</button>
 </ion-content>
