@@ -35,7 +35,7 @@
 
     <ion-card>
       <ion-card-header>
-        Cliente
+        Cliente:
       </ion-card-header>
       <ion-item>
         <h2>{{cliente?.nome}}</h2>
@@ -45,7 +45,7 @@
 
     <ion-card>
       <ion-card-header>
-        Endereço de entrega
+        Endereço de entrega:
       </ion-card-header>
       <ion-item>
         <h2>{{endereco?.logradouro}}, {{endereco?.numero}}</h2>
@@ -56,7 +56,7 @@
 
     <ion-card>
       <ion-card-header>
-        Pagamento
+        Pagamento:
       </ion-card-header>
       <ion-item *ngIf="pedido.pagamento['@type']=='pagamentoComCartao'">
         <h3>Pagamento com cartão</h3>
