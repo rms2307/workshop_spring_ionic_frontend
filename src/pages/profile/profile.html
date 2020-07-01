@@ -14,4 +14,16 @@
   <h2 text-center>{{ cliente?.nome }}</h2>
   <p> </p>
   <h3 text-center>{{ cliente?.email }}</h3>
+
+  <ion-card>
+    <ion-card-header class="ft">
+      Foto para o Perfil:
+    </ion-card-header>
+    <ion-item *ngIf="imagem">
+      <img [src]="imagem">
+    </ion-item>
+    <ion-item>
+      <button ion-button block (click)="getCameraPicture()" [disabled]="cameraOn">Camera</button>
+    </ion-item>
+  </ion-card>
 </ion-content>
