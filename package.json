@@ -27,6 +27,7 @@
     "@ionic/storage": "2.2.0",
     "angular-jwt": "^0.1.11",
     "angular2-jwt": "^0.2.3",
+    "cordova-android": "8.1.0",
     "cordova-browser": "5.0.4",
     "cordova-plugin-camera": "^4.1.0",
     "cordova-plugin-device": "^2.0.2",
@@ -57,7 +58,8 @@
       "cordova-plugin-camera": {}
     },
     "platforms": [
-      "browser"
+      "browser",
+      "android"
     ]
   }
 }
