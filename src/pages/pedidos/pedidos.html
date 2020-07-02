@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Meus Pedidos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="showPedidos(item.id)">
+      <h2>Pedido Nº: {{ item.id }} </h2>
+      <h2>Data: {{ item.instante }} </h2>
+    </button>
+  </ion-list>
+
+</ion-content>

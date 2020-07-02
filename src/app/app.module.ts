@@ -1,3 +1,4 @@
+import { PedidoService } from './../services/domain/pedido.service';
 import { CartService } from './../services/domain/cart.service';
 import { ProdutoService } from './../services/domain/produto.service';
 import { ClienteService } from './../services/domain/cliente.service';
@@ -43,6 +44,7 @@ import { ImageUtilService } from '../services/image.util.service';
     ProdutoService,
     CartService,
     ImageUtilService,
+    PedidoService,
   ]
 })
 export class AppModule { }
