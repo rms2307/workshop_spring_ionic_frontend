@@ -42,15 +42,15 @@ export class AuthService {
         this.cartService.createOrClearCart();
     }
 
-    logout() {
-        this.storage.setLocalUser(null);
-    }
-
     forgot(email: EmailDTO) {
         return this.http.post(
             `${API_CONFIG.baseUrl}/auth/forgot`,
             email,
             { observe: 'response', responseType: 'text' }
         );
+    }
+
+    logout() {
+        this.storage.setLocalUser(null);
     }
 }
