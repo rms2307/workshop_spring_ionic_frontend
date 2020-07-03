@@ -1,3 +1,4 @@
+import { EmailDTO } from './../models/email.dto';
 import { CartService } from './domain/cart.service';
 import { StorageService } from './storage.service';
 import { LocalUser } from './../models/local_user';
@@ -43,5 +44,13 @@ export class AuthService {
 
     logout() {
         this.storage.setLocalUser(null);
+    }
+
+    forgot(email: EmailDTO) {
+        return this.http.post(
+            `${API_CONFIG.baseUrl}/auth/forgot`,
+            email,
+            { observe: 'response', responseType: 'text' }
+        );
     }
 }

@@ -4,9 +4,6 @@ import { PedidoService } from './../../services/domain/pedido.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-
-
-
 @IonicPage()
 @Component({
   selector: 'page-pedidos-detail',
@@ -20,8 +17,6 @@ export class PedidosDetailPage {
   endereco: EnderecoDTO;
   itens: ItemPedidoFullDTO[];
 
-
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -34,9 +29,7 @@ export class PedidosDetailPage {
       .subscribe(response => {
         this.id = response['id'];
         this.data = response['instante'];
-
         this.itens = response['itens'];
-
         this.endereco = response['enderecoDeEntrega'];
         this.total = response['valorTotal'];
       },
