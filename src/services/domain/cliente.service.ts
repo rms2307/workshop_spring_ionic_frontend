@@ -1,3 +1,4 @@
+import { ClienteUpdateDTO } from './../../models/cliente-update.dto';
 import { ImageUtilService } from './../image.util.service';
 import { API_CONFIG } from './../../config/api.config';
 import { StorageService } from './../storage.service';
@@ -27,7 +28,7 @@ export class ClienteService {
         return this.http.get(url, { responseType: 'blob' });
     }
 
-    insert(obj: ClienteDTO) {
+    insert(obj) {
         return this.http.post(
             `${API_CONFIG.baseUrl}/clientes`,
             obj,
@@ -52,6 +53,14 @@ export class ClienteService {
         );
     }
 
-
-
+    update(obj, id: string) {
+        return this.http.put(
+            `${API_CONFIG.baseUrl}/clientes/${id}`,
+            obj,
+            {
+                observe: 'response',
+                responseType: 'text'
+            }
+        );
+    }
 }

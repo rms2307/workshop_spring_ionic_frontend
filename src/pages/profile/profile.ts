@@ -123,4 +123,8 @@ export class ProfilePage {
   cancel() {
     this.picture = null;
   }
+
+  editarInfo(id, nome, email, telefone) {
+    this.navCtrl.push('EditarDadosClientePage', { id: id, nome: nome, email: email, telefone: telefone });
+  }
 }

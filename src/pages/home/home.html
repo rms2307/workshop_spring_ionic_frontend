@@ -14,12 +14,13 @@
       </ion-label>
       <ion-input [(ngModel)]="creds.senha" name="senha" type="password"></ion-input>
     </ion-item>
+    <button ion-button small clear block (click)="forgot()">Esqueci minha senha</button>
     <p></p>
     <button ion-button block (click)="login()">Entrar</button>
   </form>
   <p></p>
-  <button ion-button block outline (click)="signup()">Cadastrar</button>
+  <h6 text-center>Ainda não tem login?</h6>
+  <button ion-button block outline (click)="signup()">Cadastre-se</button>
   <p></p>
-  <button ion-button small clear block (click)="forgot()">Esqueci a senha</button>
 
 </ion-content>
