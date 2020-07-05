@@ -41,11 +41,26 @@
 
   <ion-card>
     <ion-card-header>
+      Forma de Pagamento:
+    </ion-card-header>
+    <ion-list>
+      <ion-item *ngIf="tipoPagamento=='pagamentoComCartao'">
+        <p class='s'>Pagamento com cartão</p>
+        <p class='s'>Parcelas: {{pagamento?.numeroDeParcelas}}</p>
+      </ion-item>
+      <ion-item *ngIf="tipoPagamento=='pagamentoComBoleto'">
+        <p class='s'>Pagamento com boleto</p>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
       Total:
     </ion-card-header>
     <ion-list>
       <ion-item>
-        <p class='s'>{{total | currency}} </p>
+        <p class='s'><strong>{{total | currency}}</strong></p>
       </ion-item>
     </ion-list>
   </ion-card>

@@ -1,3 +1,4 @@
+import { PagamentoDTO } from './../../models/pagamento.dto';
 import { ItemPedidoFullDTO } from './../../models/item-pedido-full.dto';
 import { EnderecoDTO } from './../../models/endereco.dto';
 import { PedidoService } from './../../services/domain/pedido.service';
@@ -16,6 +17,8 @@ export class PedidosDetailPage {
   total: string;
   endereco: EnderecoDTO;
   itens: ItemPedidoFullDTO[];
+  pagamento: PagamentoDTO;
+  tipoPagamento;
 
   constructor(
     public navCtrl: NavController,
@@ -31,6 +34,8 @@ export class PedidosDetailPage {
         this.data = response['instante'];
         this.itens = response['itens'];
         this.endereco = response['enderecoDeEntrega'];
+        this.pagamento = response['pagamento'];
+        this.tipoPagamento = this.pagamento['@type'];
         this.total = response['valorTotal'];
       },
         error => { });

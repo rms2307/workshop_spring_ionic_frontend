@@ -16,8 +16,9 @@
     </button>
   </ion-list>
 
-  <ion-item *ngIf="items == null">
+  <ion-item *ngIf="isEmpty(items)">
     <h2 class="pedidosempty">Você ainda não tem pedidos</h2>
+    <button ion-button block outline (click)="goOn()">Ver Produtos</button>
   </ion-item>
 
 </ion-content>
