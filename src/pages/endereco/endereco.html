@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Meus Endereços</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let endereco of enderecos">
+      <ion-icon name="trash" item-start color="danger" (click)="showAlertDelete(endereco.id)"></ion-icon>
+      <ion-icon name="create" color="secondary" item-start (click)="goEditOrAdd(
+        cli_id,
+        endereco?.id,
+        endereco?.logradouro,
+        endereco?.numero,
+        endereco?.complemento,
+        endereco?.bairro,
+        endereco?.cep,
+        endereco?.cidade.id,
+        endereco?.cidade.estado.id)"></ion-icon>
+
+      <h2>{{endereco?.logradouro}}, {{endereco?.numero}}</h2>
+      <p>{{endereco?.complemento}}, {{endereco?.bairro}}, CEP {{endereco?.cep}}</p>
+      <p>{{endereco?.cidade.nome}}, {{endereco?.cidade.estado.nome}}</p>
+
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block (click)="goEditOrAdd(cli_id)">Adicionar novo endereço</button>
+</ion-content>

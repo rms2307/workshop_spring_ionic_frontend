@@ -1,10 +1,8 @@
-import { ClienteUpdateDTO } from './../../models/cliente-update.dto';
 import { ImageUtilService } from './../image.util.service';
 import { API_CONFIG } from './../../config/api.config';
 import { StorageService } from './../storage.service';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs/Rx';
-import { ClienteDTO } from '../../models/cliente.dto';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -39,6 +37,17 @@ export class ClienteService {
         );
     }
 
+    update(obj, id: string) {
+        return this.http.put(
+            `${API_CONFIG.baseUrl}/clientes/${id}`,
+            obj,
+            {
+                observe: 'response',
+                responseType: 'text'
+            }
+        );
+    }
+
     uploadImagem(imagem) {
         let imagemBlob = this.imageService.dataUriToBlob(imagem);
         let formData: FormData = new FormData();
@@ -53,9 +62,9 @@ export class ClienteService {
         );
     }
 
-    update(obj, id: string) {
-        return this.http.put(
-            `${API_CONFIG.baseUrl}/clientes/${id}`,
+    addEndereco(obj) {
+        return this.http.post(
+            `${API_CONFIG.baseUrl}/clientes/enderecos`,
             obj,
             {
                 observe: 'response',
@@ -63,4 +72,26 @@ export class ClienteService {
             }
         );
     }
+
+    updateEndereco(obj, id: string) {
+        return this.http.put(
+            `${API_CONFIG.baseUrl}/clientes/enderecos/${id}`,
+            obj,
+            {
+                observe: 'response',
+                responseType: 'text'
+            }
+        );
+    }
+
+    deleteEndereco(id: string) {
+        return this.http.delete(
+            `${API_CONFIG.baseUrl}/clientes/enderecos/${id}`,
+            {
+                observe: 'response',
+                responseType: 'text'
+            }
+        );
+    }
+
 }

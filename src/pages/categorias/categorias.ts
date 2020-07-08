@@ -1,4 +1,3 @@
-import { ItemPedidoDTO } from './../../models/item-pedido.dto';
 import { ClienteService } from './../../services/domain/cliente.service';
 import { StorageService } from './../../services/storage.service';
 import { API_CONFIG } from './../../config/api.config';
@@ -7,7 +6,6 @@ import { CategoriaService } from './../../services/domain/categoria.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ClienteDTO } from '../../models/cliente.dto';
-import { elementAt } from 'rxjs/operator/elementAt';
 
 @IonicPage()
 @Component({
@@ -35,7 +33,7 @@ export class CategoriasPage {
   ionViewDidLoad() {
     this.categoriaService.findAll().
       subscribe(response => { this.items = response; },
-        error => { });
+        () => { });
     this.isAdminUser();
   }
 
@@ -55,7 +53,7 @@ export class CategoriasPage {
             this.isAdmin = false;
           }
         },
-          error => { });
+          () => { });
     }
   }
 

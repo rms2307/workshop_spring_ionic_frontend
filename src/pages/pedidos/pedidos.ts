@@ -2,7 +2,6 @@ import { PedidoDTOId } from '../../models/pedido.dtoid';
 import { PedidoService } from './../../services/domain/pedido.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { isEmpty } from 'rxjs/operator/isEmpty';
 
 
 @IonicPage()
@@ -25,7 +24,7 @@ export class PedidosPage {
       subscribe(response => {
         this.items = response;
       },
-        error => { });
+        () => { });
   }
 
   isEmpty(obj) {

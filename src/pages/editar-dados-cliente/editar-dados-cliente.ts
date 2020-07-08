@@ -1,5 +1,3 @@
-import { ClienteUpdateDTO } from './../../models/cliente-update.dto';
-import { StorageService } from './../../services/storage.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
