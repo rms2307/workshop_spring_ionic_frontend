@@ -27,4 +27,36 @@ export class ProdutoService {
         let url = `${API_CONFIG.bucketBaseUrl}/prod${id}.jpg`
         return this.http.get(url, { responseType: 'blob' });
     }
+
+    delete(id: string) {
+        return this.http.delete(`${API_CONFIG.baseUrl}/produtos/${id}`,
+            {
+                observe: 'response',
+                responseType: 'text'
+            }
+        );
+    }
+
+    insert(obj) {
+        return this.http.post(`${API_CONFIG.baseUrl}/produtos`,
+            obj,
+            {
+                observe: 'response',
+                responseType: 'text'
+            }
+        );
+    }
+
+    update(obj, id: string) {
+        return this.http.put(
+            `${API_CONFIG.baseUrl}/produtos/${id}`,
+            obj,
+            {
+                observe: 'response',
+                responseType: 'text'
+            }
+        );
+    }
+
+
 }

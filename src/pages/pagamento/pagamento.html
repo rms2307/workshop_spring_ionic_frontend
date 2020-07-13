@@ -10,6 +10,7 @@
 <ion-content padding>
 
   <form [formGroup]="formGroup" (ngSubmit)="nextPage(); $event.preventDefault()">
+
     <ion-list radio-group formControlName="@type">
       <ion-list-header>
         <h3>Tipo de pagamento:</h3>
@@ -25,7 +26,7 @@
     </ion-list>
 
     <ion-item *ngIf="formGroup.value['@type'] == 'pagamentoComCartao'">
-      <ion-label stacked>Parcelas no boleto</ion-label>
+      <ion-label stacked>Número de parcelas</ion-label>
       <ion-select formControlName="numeroDeParcelas">
         <ion-option *ngFor="let n of parcelas; first as f" [value]="n" [selected]="f">{{n}}</ion-option>
       </ion-select>

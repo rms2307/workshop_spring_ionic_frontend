@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title *ngIf="!produto_id">Cadastrar Novo Produto</ion-title>
+    <ion-title *ngIf="produto_id">Editar Produto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form *ngIf="!produto_id" [formGroup]="formGroup" (ngSubmit)="insertNewProduto(); $event.preventDefault()">
+    <ion-item>
+      <ion-label stacked>Nome:</ion-label>
+      <ion-input formControlName="nome" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Preço:</ion-label>
+      <ion-input formControlName="preco" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Categorias(Selecione ao menos uma):</ion-label>
+      <ion-select multiple="true" formControlName="categoria_id">
+        <ion-option *ngFor="let categoria of categorias" [value]="categoria.id">
+          {{categoria.nome}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="formGroup.invalid">Salvar</button>
+  </form>
+
+  <form *ngIf="produto_id" [formGroup]="formGroup" (ngSubmit)="update(); $event.preventDefault()">
+    <ion-item>
+      <ion-label stacked>Nome:</ion-label>
+      <ion-input formControlName="nome" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Preço:</ion-label>
+      <ion-input formControlName="preco" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Categorias(Selecione ao menos uma):</ion-label>
+      <ion-select multiple="true" formControlName="categoria_id">
+        <ion-option *ngFor="let categoria of categorias" [value]="categoria.id">
+          {{categoria.nome}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="formGroup.invalid">Atualizar</button>
+  </form>
+
+</ion-content>

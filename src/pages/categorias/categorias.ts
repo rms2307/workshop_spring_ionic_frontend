@@ -53,7 +53,7 @@ export class CategoriasPage {
             this.isAdmin = false;
           }
         },
-          () => { });
+          error => { });
     }
   }
 

@@ -8,11 +8,13 @@
 </ion-header>
 
 <ion-content padding>
+
   <ion-fab top right edge>
     <button navPush="CartPage" ion-fab mini>
       <ion-icon name="cart"></ion-icon>
     </button>
   </ion-fab>
+
   <ion-card>
     <img [src]="item?.imageUrl || 'assets/imgs/prod.jpg'" />
     <ion-card-content>
@@ -25,5 +27,23 @@
     </ion-card-content>
   </ion-card>
 
+  <ion-card *ngIf="isAdmin">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div>
+            <button ion-button block outline
+              (click)="goEdit(item?.id, item?.nome, item?.preco, item?.categorias)">Editar</button>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <button ion-button block outline (click)="showDelete(item?.id)">Excluir</button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-card>
   <button ion-button block outline (click)="addToCart(item)">Adicionar ao carrinho</button>
 </ion-content>

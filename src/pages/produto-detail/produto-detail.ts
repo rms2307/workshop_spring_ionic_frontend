@@ -2,8 +2,11 @@ import { CartService } from './../../services/domain/cart.service';
 import { API_CONFIG } from './../../config/api.config';
 import { ProdutoService } from './../../services/domain/produto.service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { ProdutoDTO } from '../../models/produto.dto';
+import { StorageService } from '../../services/storage.service';
+import { ClienteService } from '../../services/domain/cliente.service';
+import { CategoriaDTO } from '../../models/categoria.dto';
 
 
 @IonicPage()
@@ -14,13 +17,18 @@ import { ProdutoDTO } from '../../models/produto.dto';
 export class ProdutoDetailPage {
 
   item: ProdutoDTO;
+  isAdmin: boolean = false;
+  perfil: string[];
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public produtoService: ProdutoService,
     public cartService: CartService,
-    public loadingCtl: LoadingController) {
+    public loadingCtl: LoadingController,
+    public storage: StorageService,
+    public clienteService: ClienteService,
+    public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -34,7 +42,8 @@ export class ProdutoDetailPage {
       },
         error => {
           loading.dismiss()
-        })
+        });
+    this.isAdminUser();
   }
 
   getImgIfExists() {
@@ -56,5 +65,53 @@ export class ProdutoDetailPage {
     });
     loading.present();
     return loading;
+  }
+
+  delete(id: string) {
+    this.produtoService.delete(id)
+      .subscribe(response => {
+      },
+        error => { });
+  }
+
+  showDelete(id: string) {
+    let alert = this.alertCtrl.create({
+      title: 'Confirmação!',
+      message: 'Remover produto?',
+      enableBackdropDismiss: false,
+      buttons: [
+        {
+          text: 'SIM',
+          handler: () => {
+            this.delete(id);
+            this.navCtrl.setRoot('CategoriasPage');
+          }
+        },
+        {
+          text: 'NÃO'
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  goEdit(produto_id: string, nome: string, preco: string, categorias: CategoriaDTO[]) {
+    this.navCtrl.push('NovoEditarProdutoPage', { produto_id: produto_id, nome: nome, preco: preco, categorias: categorias })
+  }
+
+  isAdminUser() {
+    let localuser = this.storage.getLocalUser();
+    if (localuser && localuser.email) {
+      this.clienteService.findByEmail(localuser.email)
+        .subscribe(response => {
+          this.perfil = response['perfis'];
+          if (this.perfil.indexOf("ADMIN") != -1) {
+            this.isAdmin = true;
+          } else {
+            this.isAdmin = false;
+          }
+        },
+          error => { });
+    }
   }
 }

@@ -21,6 +21,14 @@
       <h1 class="cat"> {{ item.nome }} </h1>
     </button>
   </ion-list>
-  <button *ngIf="isAdmin" ion-button block>Cadastrar Novo Produto</button>
   <p></p>
+  <ion-grid *ngIf="isAdmin">
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col></ion-col>
+      <ion-col>
+        <button ion-button navPush="NovoEditarProdutoPage">Novo Produto</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

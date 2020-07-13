@@ -30,7 +30,6 @@ export class MyApp {
       { title: 'Carrinho', component: 'CartPage' },
       { title: 'Logout', component: '' },
     ];
-
   }
 
   initializeApp() {
@@ -42,15 +41,14 @@ export class MyApp {
   }
 
   openPage(page: { title: string, component: string }) {
-
     switch (page.title) {
       case 'Logout':
         this.auth.logout();
         this.nav.setRoot('HomePage');
         break;
-
       default:
         this.nav.setRoot(page.component);
     }
   }
+
 }
