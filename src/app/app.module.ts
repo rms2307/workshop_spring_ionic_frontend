@@ -19,6 +19,7 @@ import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
 import { ImageUtilService } from '../services/image.util.service';
 import { CidadeService } from '../services/domain/cidade.service';
 import { EstadoService } from '../services/domain/estado.service';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { EstadoService } from '../services/domain/estado.service';
     PedidoService,
     CidadeService,
     EstadoService,
+    Camera,
   ]
 })
 export class AppModule { }

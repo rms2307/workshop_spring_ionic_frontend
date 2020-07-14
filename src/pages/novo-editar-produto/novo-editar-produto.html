@@ -8,6 +8,9 @@
 <ion-content padding>
 
   <form *ngIf="!produto_id" [formGroup]="formGroup" (ngSubmit)="insertNewProduto(); $event.preventDefault()">
+    <ion-item *ngIf="picture">
+      <img [src]="picture">
+    </ion-item>
     <ion-item>
       <ion-label stacked>Nome:</ion-label>
       <ion-input formControlName="nome" type="text"></ion-input>
@@ -24,10 +27,23 @@
         </ion-option>
       </ion-select>
     </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button outline block (click)="getCameraPicture()" [disabled]="cameraOn">Imagem da Camera</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button outline block (click)="cancel()" [disabled]="!picture">Descartar imagem</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
     <button ion-button block type="submit" [disabled]="formGroup.invalid">Salvar</button>
   </form>
 
   <form *ngIf="produto_id" [formGroup]="formGroup" (ngSubmit)="update(); $event.preventDefault()">
+    <ion-item *ngIf="picture">
+      <img [src]="picture">
+    </ion-item>
     <ion-item>
       <ion-label stacked>Nome:</ion-label>
       <ion-input formControlName="nome" type="text"></ion-input>
@@ -44,6 +60,16 @@
         </ion-option>
       </ion-select>
     </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <button ion-button outline block (click)="getCameraPicture()" [disabled]="cameraOn">Imagem da Camera</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button outline block (click)="cancel()" [disabled]="!picture">Descartar imagem</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
     <button ion-button block type="submit" [disabled]="formGroup.invalid">Atualizar</button>
   </form>
 

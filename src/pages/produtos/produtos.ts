@@ -54,9 +54,9 @@ export class ProdutosPage {
   getImgIfExists(start: number, end: number) {
     for (var i = start; i <= end; i++) {
       let item = this.items[i];
-      this.produtoService.getSmallImgFromBucket(item.id)
+      this.produtoService.getImgFromBucket(item.id)
         .subscribe(response => {
-          item.imageUrl = `${API_CONFIG.bucketBaseUrl}/prod${item.id}-small.jpg`;
+          item.imageUrl = `${API_CONFIG.bucketBaseUrl}/prod${item.id}.jpg`;
         },
           error => { });
     }

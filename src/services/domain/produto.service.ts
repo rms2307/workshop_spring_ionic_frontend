@@ -1,3 +1,4 @@
+import { ImageUtilService } from './../image.util.service';
 import { ProdutoDTO } from './../../models/produto.dto';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -7,7 +8,9 @@ import { Observable } from 'rxjs/Rx'; // IMPORTANTE: IMPORT ATUALIZADO
 @Injectable()
 export class ProdutoService {
 
-    constructor(public http: HttpClient) {
+    constructor(
+        public http: HttpClient,
+        public imageService: ImageUtilService) {
     }
 
     findById(produto_id: string) {
@@ -51,6 +54,34 @@ export class ProdutoService {
         return this.http.put(
             `${API_CONFIG.baseUrl}/produtos/${id}`,
             obj,
+            {
+                observe: 'response',
+                responseType: 'text'
+            }
+        );
+    }
+
+    uploadImage(imagem) {
+        let imagemBlob = this.imageService.dataUriToBlob(imagem);
+        let formData: FormData = new FormData();
+        formData.set('file', imagemBlob, 'file.png');
+        return this.http.post(
+            `${API_CONFIG.baseUrl}/produtos/picture`,
+            formData,
+            {
+                observe: 'response',
+                responseType: 'text'
+            }
+        );
+    }
+
+    uploadImageUpdate(imagem, id: string) {
+        let imagemBlob = this.imageService.dataUriToBlob(imagem);
+        let formData: FormData = new FormData();
+        formData.set('file', imagemBlob, 'file.png');
+        return this.http.post(
+            `${API_CONFIG.baseUrl}/produtos/picture/${id}`,
+            formData,
             {
                 observe: 'response',
                 responseType: 'text'
