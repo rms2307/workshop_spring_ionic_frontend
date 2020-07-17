@@ -11,7 +11,7 @@ $font-path: "../assets/fonts";
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
 
-$toolbar-background: rgb(104, 167, 104);
+$toolbar-background: #84b29d;
 
 
 @import "ionic.globals";
@@ -36,8 +36,8 @@ $toolbar-background: rgb(104, 167, 104);
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    green,
-  secondary:  #32db64,
+  primary:    #84b29d,
+  secondary:  #97cdb5,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222

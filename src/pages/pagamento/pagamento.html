@@ -9,11 +9,11 @@
 
 <ion-content padding>
 
-  <form [formGroup]="formGroup" (ngSubmit)="nextPage(); $event.preventDefault()">
+  <form id="form" [formGroup]="formGroup" (ngSubmit)="nextPage(); $event.preventDefault()">
 
     <ion-list radio-group formControlName="@type">
       <ion-list-header>
-        <h3>Tipo de pagamento:</h3>
+        <p>Tipo de pagamento:</p>
       </ion-list-header>
       <ion-item>
         <ion-label>Pagamento com cartão</ion-label>

@@ -10,10 +10,10 @@
 <ion-content padding>
   <ion-list>
     <ion-list-header>
-      <h3>Selecione um endereço:</h3>
+      <p id="end">Selecione um endereço:</p>
     </ion-list-header>
     <button ion-item *ngFor="let item of items" (click)="nextPage(item)">
-      <h2>{{item.logradouro}}, {{item.numero}}</h2>
+      <p>{{item.logradouro}}, {{item.numero}}</p>
       <p>{{item.complemento}} {{item.bairro}} CEP {{item.cep}}</p>
       <p>{{item.cidade.nome}}, {{item.cidade.estado.nome}}</p>
     </button>

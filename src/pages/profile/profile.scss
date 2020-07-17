@@ -8,4 +8,63 @@ page-profile {
     .ft{
         text-align: center;
     }
+
+    #card1{
+        border-radius: 15px;  
+    }
+
+    #card1 p{
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    #card2{
+        border-radius: 15px;  
+    }
+
+    #card2 p{
+        font-size: 15px;
+        text-align: center;
+    }
+
+    #btn-edit{
+        position: relative;
+        width: 95%;
+        left: 2.5%;
+        border-radius: 27px;
+        height: 45px;
+    }
+
+    #card3{
+        border-radius: 15px;   
+    }
+
+    #btn-CameraGaleria{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;   
+    }
+
+    #btn-CameraGaleria button{
+        margin-left: 5px;
+        margin-right: 5px;
+        width: 45%;
+        height: 45px;
+        border-radius: 27px;
+    }
+
+    #btn-EnviarDescartImagem{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;      
+    }
+
+    #btn-EnviarDescartImagem button{
+        margin-left: 5px;
+        margin-right: 5px;
+        width: 45%;
+        height: 45px;
+        border-radius: 27px;
+    }
 }

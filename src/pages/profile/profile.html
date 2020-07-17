@@ -12,40 +12,42 @@
     <img class="circle" [src]="profileImage">
   </ion-avatar>
 
-  <ion-card>
+  <ion-card id="card1">
     <ion-card-header>
-      <h2 text-center><strong>{{cliente?.nome}}</strong></h2>
+      <p>{{cliente?.nome}}</p>
     </ion-card-header>
   </ion-card>
-  <ion-card>
+
+  <ion-card id="card2">
     <ion-list>
-      <h2 text-center>
-        <ion-icon name="mail-outline" style="align-self:center;"> {{cliente?.email}} </ion-icon>
-      </h2>
-      <h2 text-center>
+      <p>
+        <ion-icon name="mail-outline"> {{cliente?.email}} </ion-icon>
+      </p>
+      <p>
         <ion-icon name="chatbubbles-outline"> {{cliente?.telefone}} </ion-icon>
-      </h2>
+      </p>
     </ion-list>
   </ion-card>
 
-  <ion-card>
-    <ion-item>
-      <button ion-button block
-        (click)="editarInfo(cliente?.id, cliente?.nome, cliente?.email, cliente?.telefone)">Editar
-        Informações</button>
-    </ion-item>
-  </ion-card>
+  <button id="btn-edit" ion-button
+    (click)="editarInfo(cliente?.id, cliente?.nome, cliente?.email, cliente?.telefone)">Editar
+    Informações</button>
 
-  <ion-card>
+
+  <ion-card id="card3">
     <ion-item *ngIf="picture">
       <img [src]="picture">
     </ion-item>
-    <ion-item>
-      <button ion-button block (click)="getCameraPicture()" [disabled]="cameraOn">Imagem da Camera</button>
-      <button ion-button block (click)="getGalleryPicture()" [disabled]="cameraOn">Imagem da Galeria</button>
-      <button *ngIf="picture" ion-button outline block (click)="sendPicture()">Enviar imagem</button>
-      <button *ngIf="picture" ion-button outline block (click)="cancel()">Descartar imagem</button>
-    </ion-item>
   </ion-card>
+
+  <div id="btn-CameraGaleria">
+    <button ion-button block (click)="getCameraPicture()" [disabled]="cameraOn">Imagem da Camera</button>
+    <button ion-button block (click)="getGalleryPicture()" [disabled]="cameraOn">Imagem da Galeria</button>
+  </div>
+
+  <div id="btn-EnviarDescartImagem">
+    <button *ngIf="picture" ion-button outline block (click)="sendPicture()">Enviar imagem</button>
+    <button *ngIf="picture" ion-button outline block (click)="cancel()">Descartar imagem</button>
+  </div>
 
 </ion-content>

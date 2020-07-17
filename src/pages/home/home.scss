@@ -1,16 +1,83 @@
-page-home {
+page-home{
 
-    img{
-        width: 400 px;
-        align-self: center;
-        margin: auto;
-        display: block;
-        padding: 10px;
+    * {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        margin: 0;
     }
 
-    h2{
-        font-style: italic;
-        color: green;
+    #all{        
+        height: 100%;
+    }
+        
+    #logo{
+        margin: 0;
+        margin-bottom: 30px;
+        height: 150px;
+        width: 100%;
+        position: relative;
+        background-color: #84b29d;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    #logo img{
+        height: 130px;
+        position: relative;
+        top: 45%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);    
+    }
+
+    #form div {
+        height: 60px;
+        margin-top: 10px;
+    }
+
+    #form ion-input {
+        font-size: 18px;
+        color: #1b3815;
+        line-height: 1.6;
+        display: block;
+        width: 100%;
+        height: 55px;
+        background: #ebebeb;
+        border-radius: 27px;
+        padding: 0 35px 0 35px;
+    }
+
+    #form .btn-forgot {
+        font-size: 12px;
+        top: 20px;
+        left: 55%;
+        width: 45%;
+    }
+
+    #form .btn-login{
+        font-size: 18px;
+        top: 20px;
+        border-radius: 27px;
+        height: 55px;
+        width: 100%;
+        font-weight: bold;
+    }
+
+    #signup{
+        position: absolute;
+        width: 100%;
+        top: 150px;
+    }
+
+    #signup p{
+        color: #97cdb5 ;
+        text-align: center;
+    }
+
+    #signup button{
+        font-weight: bold;
+        height: 25px;
+        font-size: 18px;
+        width: 100%;
     }
 
 }

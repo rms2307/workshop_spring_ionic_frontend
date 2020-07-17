@@ -7,7 +7,7 @@
 
 <ion-content padding>
 
-  <form *ngIf="endereco_id" [formGroup]="formGroup" (ngSubmit)="updateEndereco(); $event.preventDefault()">
+  <form id="form" *ngIf="endereco_id" [formGroup]="formGroup" (ngSubmit)="updateEndereco(); $event.preventDefault()">
 
     <ion-item>
       <ion-label stacked>Logradouro</ion-label>
@@ -53,7 +53,7 @@
 
   </form>
 
-  <form *ngIf="!endereco_id" [formGroup]="formGroup" (ngSubmit)="saveEndereco(); $event.preventDefault()">
+  <form id="form" *ngIf="!endereco_id" [formGroup]="formGroup" (ngSubmit)="saveEndereco(); $event.preventDefault()">
     <ion-item>
       <ion-label stacked>Logradouro</ion-label>
       <ion-input formControlName="logradouro" type="text"></ion-input>

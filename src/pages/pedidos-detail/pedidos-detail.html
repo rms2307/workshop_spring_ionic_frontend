@@ -10,37 +10,37 @@
 <ion-content padding>
 
   <ion-card>
-    <ion-card-header>
+    <ion-card-header class="card">
       Data/Hora: {{data}}
     </ion-card-header>
   </ion-card>
 
   <ion-card>
-    <ion-card-header>
+    <ion-card-header class="card">
       Produtos:
     </ion-card-header>
     <ion-list>
       <ion-item *ngFor="let item of itens">
-        <p class='s'> {{item?.quantidade}} {{item?.produto.nome}} {{item?.preco | currency}}</p>
+        <p> {{item?.quantidade}} {{item?.produto.nome}} {{item?.preco | currency}}</p>
       </ion-item>
     </ion-list>
   </ion-card>
 
   <ion-card>
-    <ion-card-header>
+    <ion-card-header class="card">
       Endereço de Entrega:
     </ion-card-header>
     <ion-list>
       <ion-item>
-        <p class='s'>{{endereco?.logradouro}}, {{endereco?.numero}}, {{endereco?.bairro}}</p>
-        <p class='s'>{{endereco?.complemento}}</p>
-        <p class='s'>CEP: {{endereco?.cep}} </p>
+        <p>{{endereco?.logradouro}}, {{endereco?.numero}}, {{endereco?.bairro}}</p>
+        <p>{{endereco?.complemento}}</p>
+        <p>CEP: {{endereco?.cep}} </p>
       </ion-item>
     </ion-list>
   </ion-card>
 
   <ion-card>
-    <ion-card-header>
+    <ion-card-header class="card">
       Forma de Pagamento:
     </ion-card-header>
     <ion-list>
@@ -55,7 +55,7 @@
   </ion-card>
 
   <ion-card>
-    <ion-card-header>
+    <ion-card-header class="cardT">
       Total:
     </ion-card-header>
     <ion-list>

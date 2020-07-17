@@ -1,3 +1,27 @@
 page-confirmacao-pedido {
 
+    #btn-confirmarvoltar{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    #btn-confirmarvoltar button{
+            margin-left: 5px;
+            margin-right: 5px;
+            width: 45%;
+            height: 45px;
+            border-radius: 27px;
+        }
+
+    #btn-voltar{
+        font-size: 18px;
+        font-weight: bold;
+        height: 45px;
+        border-radius: 27px;
+        width: 80%;
+        left: 10%;
+
+    }
+
 }

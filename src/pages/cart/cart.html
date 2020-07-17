@@ -14,7 +14,7 @@
       <ion-thumbnail item-start>
         <img [src]="item.produto.imageUrl || 'assets/imgs/prod.jpg'">
       </ion-thumbnail>
-      <h2>{{item.produto.nome}}</h2>
+      <p class="nomeProd">{{item.produto.nome}}</p>
       <p>{{item.produto.preco | currency}}</p>
       <ion-icon name="remove-circle" class="nolinebreak" color="primary" (click)="decreaseQuantity(item.produto)">
       </ion-icon>
@@ -24,15 +24,16 @@
     </ion-item>
 
     <ion-item *ngIf="total() > 0">
-      <h2>Total</h2>
-      <h2 item-end>{{total() | currency}}</h2>
+      <p class="nomeProd"><strong>Total</strong></p>
+      <p item-end class="nomeProd">{{total() | currency}}</p>
     </ion-item>
 
     <ion-item *ngIf="total() <= 0">
-      <h2 class="cartempty">Seu carrinho está vazio</h2>
+      <p class="cartempty">Seu carrinho está vazio</p>
     </ion-item>
-
   </ion-list>
-  <button ion-button block (click)="goOn()">Continuar Comprando</button>
-  <button *ngIf="total() > 0" ion-button block color="secondary" (click)="finalizaPedido()">Finalizar pedido</button>
+  <div id="btn-final">
+    <button ion-button block (click)="goOn()">Continuar Comprando</button>
+    <button *ngIf="total() > 0" ion-button block color="secondary" (click)="finalizaPedido()">Finalizar pedido</button>
+  </div>
 </ion-content>

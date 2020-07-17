@@ -1,3 +1,23 @@
 page-editar-dados-cliente {
 
+    p {
+        color: red;
+    }
+
+    #form ion-label{
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    #form button{
+        font-size: 18px;
+        font-weight: bold;
+        height: 45px;
+        border-radius: 27px;
+        width: 80%;
+        top: 20px;
+        left: 10%;
+    }
+
+
 }

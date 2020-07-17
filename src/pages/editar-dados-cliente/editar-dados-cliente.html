@@ -6,26 +6,26 @@
 
 <ion-content padding>
 
-  <form [formGroup]="formGroup" (ngSubmit)=" update(); $event.preventDefault()">
+  <form id="form" [formGroup]="formGroup" (ngSubmit)=" update(); $event.preventDefault()">
     <ion-item>
       <ion-label stacked>Nome</ion-label>
       <ion-input formControlName="nome" type="text"></ion-input>
     </ion-item>
-    <p class="danger" *ngIf="formGroup.controls.nome.dirty && formGroup.controls.nome.errors" margin-left>Valor Inválido
+    <p *ngIf="formGroup.controls.nome.dirty && formGroup.controls.nome.errors" margin-left>Valor Inválido
     </p>
 
     <ion-item>
       <ion-label stacked>Email</ion-label>
       <ion-input formControlName="email" type="text"></ion-input>
     </ion-item>
-    <p class="danger" *ngIf="formGroup.controls.email.dirty && formGroup.controls.email.errors" margin-left>Valor
+    <p *ngIf="formGroup.controls.email.dirty && formGroup.controls.email.errors" margin-left>Valor
       Inválido</p>
 
     <ion-item>
       <ion-label stacked>Telefone</ion-label>
       <ion-input formControlName="telefone" type="text"></ion-input>
     </ion-item>
-    <p class="danger" *ngIf="formGroup.controls.telefone.dirty && formGroup.controls.telefone.errors" margin-left>
+    <p *ngIf="formGroup.controls.telefone.dirty && formGroup.controls.telefone.errors" margin-left>
       Valor Inválido</p>
 
     <button ion-button name="save-outline" block type="submit" [disabled]="formGroup.invalid">Atualizar</button>

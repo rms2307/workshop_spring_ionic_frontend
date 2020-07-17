@@ -1,26 +1,42 @@
 <ion-content padding>
-  <img src="assets/imgs/home.JPG" alt="logo">
 
-  <form>
-    <ion-item>
-      <ion-label class="font" stacked>
-        <h2><strong>Email:</strong></h2>
-      </ion-label>
-      <ion-input [(ngModel)]="creds.email" name="email" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label stacked>
-        <h2><strong>Senha:</strong></h2>
-      </ion-label>
-      <ion-input [(ngModel)]="creds.senha" name="senha" type="password"></ion-input>
-    </ion-item>
-    <button ion-button small clear block (click)="forgot()">Esqueci minha senha</button>
-    <p></p>
-    <button ion-button block (click)="login()">Entrar</button>
-  </form>
-  <p></p>
-  <h6 text-center>Ainda não tem login?</h6>
-  <button ion-button block outline (click)="signup()">Cadastre-se</button>
-  <p></p>
+    <ion-grid>
+
+        <ion-row id="logo">
+            <ion-col>
+                <img src="assets/imgs/logo.png" alt="logo">
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <div id="form">
+                    <form>
+                        <div>
+                            <ion-input [(ngModel)]="creds.email" name="email" type="text" placeholder="E-mail">
+                            </ion-input>
+                        </div>
+                        <div>
+                            <ion-input [(ngModel)]="creds.senha" name="senha" type="password" placeholder="Senha">
+                            </ion-input>
+                        </div>
+
+                        <button class="btn-forgot" ion-button small clear (click)="forgot()">Esqueci minha
+                            senha</button>
+                        <button class="btn-login" ion-button (click)="login()">ENTRAR</button>
+                    </form>
+                </div>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <div id=signup>
+                    <p>Ainda não tem login?</p>
+                    <button ion-button clear (click)="signup()">Cadastre-se</button>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
 </ion-content>

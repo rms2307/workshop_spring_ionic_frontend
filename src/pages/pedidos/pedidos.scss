@@ -1,5 +1,21 @@
 page-pedidos {
-    .pedidosempty{
-        text-align: center;  
-    }
+    
+  #btn-goProds{
+    top: 20px;
+  }
+
+  #btn-goProds p{
+    text-align: center;
+    font-size: 17px;
+  }
+
+  #btn-goProds button{
+      border-radius: 27px;
+      width: 45%;
+      height: 45px;
+      position: relative;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, 0);
+  }
 }

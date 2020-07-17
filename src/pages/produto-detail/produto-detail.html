@@ -15,7 +15,7 @@
     </button>
   </ion-fab>
 
-  <ion-card>
+  <ion-card id="detailprods">
     <img [src]="item?.imageUrl || 'assets/imgs/prod.jpg'" />
     <ion-card-content>
       <ion-card-title>
@@ -27,23 +27,10 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngIf="isAdmin">
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <div>
-            <button ion-button block outline
-              (click)="goEdit(item?.id, item?.nome, item?.preco, item?.categorias)">Editar</button>
-          </div>
-        </ion-col>
-        <ion-col>
-          <div>
-            <button ion-button block outline (click)="showDelete(item?.id)">Excluir</button>
-          </div>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+  <div id="btn-editarexcluir" *ngIf="isAdmin">
+    <button ion-button outline (click)="goEdit(item?.id, item?.nome, item?.preco, item?.categorias)">EDITAR</button>
+    <button ion-button outline (click)="showDelete(item?.id)">EXCLUIR</button>
+  </div>
 
-  </ion-card>
-  <button ion-button block outline (click)="addToCart(item)">Adicionar ao carrinho</button>
+  <button id="btn-addcart" ion-button (click)="addToCart(item)">ADICIONAR AO CARRINHO</button>
 </ion-content>

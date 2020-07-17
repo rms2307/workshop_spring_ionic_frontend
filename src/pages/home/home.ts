@@ -14,7 +14,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class HomePage {
 
   creds: CredenciaisDTO = {
-    email: "rms.app.teste@gmail.com",
+    email: "",
     senha: ""
   }
 

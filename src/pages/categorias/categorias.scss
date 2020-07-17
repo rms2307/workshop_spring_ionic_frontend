@@ -1,24 +1,24 @@
 page-categorias {
+
     img{
         height: 120px;
-        align-self: center;
         margin: auto;
         display: block;
-        padding: 10px;
+        margin-bottom: 17px;
     }
 
-    .nolinebreak{
-        float: left;
-        padding-right: 20px;
+    #listProds h1{
+        color: #1b3815;
+        font-weight: bold;
     }
 
-    .hor{
-        color: green;
-        font-style: italic;
-        text-align: center;
+    #btn-new{
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 27px;
+        height: 45px;
+        width: 50%;
+        left: 50%;
     }
 
-    .cat{
-        color: grey;
-    }
 }

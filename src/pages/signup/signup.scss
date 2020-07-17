@@ -1,6 +1,20 @@
 page-signup {
-    .danger{
+    p {
         color: red;
+    }
+
+    #form ion-label{
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    #form button{
+        font-size: 18px;
+        font-weight: bold;
+        height: 45px;
+        border-radius: 27px;
+        width: 80%;
+        left: 10%;
     }
 
 }

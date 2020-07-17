@@ -8,27 +8,28 @@
 </ion-header>
 
 <ion-content padding>
-  <img src="assets/imgs/home.JPG" alt="logo">
-  <p></p>
+  <div>
+    <img src="assets/imgs/logo.png" alt="logo">
+  </div>
+
   <ion-fab top right edge>
     <button navPush="CartPage" ion-fab mini>
       <ion-icon name="cart"></ion-icon>
     </button>
   </ion-fab>
-  <p></p>
-  <ion-list>
+
+  <ion-list id="listProds">
     <button ion-item *ngFor="let item of items" (click)="showProdutos(item.id)">
-      <h1 class="cat"> {{ item.nome }} </h1>
+      <h1> {{ item.nome }} </h1>
     </button>
   </ion-list>
-  <p></p>
+
   <ion-grid *ngIf="isAdmin">
     <ion-row>
-      <ion-col></ion-col>
-      <ion-col></ion-col>
       <ion-col>
-        <button ion-button navPush="NovoEditarProdutoPage">Novo Produto</button>
+        <button id="btn-new" ion-button navPush="NovoEditarProdutoPage">Novo Produto</button>
       </ion-col>
     </ion-row>
   </ion-grid>
+
 </ion-content>

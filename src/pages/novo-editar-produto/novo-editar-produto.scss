@@ -1,3 +1,35 @@
 page-novo-editar-produto {
 
+    #image img{
+        position: relative;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, 0); 
+    }
+
+    #form ion-label{
+        color: #84b29d;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    #btn-image{
+        display: flex;
+        flex-direction: row;
+        justify-content: center; 
+    }
+
+    #btn-image button{
+        border-radius: 27px;
+        margin: 10px;
+        height: 35px;
+    }
+
+    #btn-update{
+        font-size: 18px;
+        font-weight: bold;
+        height: 45px;
+        border-radius: 27px;
+    }
+
 }

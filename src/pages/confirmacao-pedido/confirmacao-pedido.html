@@ -54,10 +54,10 @@
       </ion-item>
     </ion-card>
 
-
-
-    <button ion-button block (click)="fecharPedido()">Confirmar Pedido</button>
-    <button ion-button block outline (click)="back()">Voltar</button>
+    <div id="btn-confirmarvoltar">
+      <button ion-button block (click)="fecharPedido()">Confirmar Pedido</button>
+      <button ion-button block outline (click)="back()">Voltar</button>
+    </div>
   </div>
 
   <div *ngIf="codPedido">
@@ -70,7 +70,7 @@
         <p>Verifique seu email</p>
       </ion-item>
     </ion-card>
-    <button ion-button block outline (click)="home()">Voltar</button>
+    <button id="btn-voltar" ion-button block outline (click)="home()">Voltar</button>
   </div>
 
 </ion-content>

@@ -9,16 +9,18 @@
 
 <ion-content padding>
 
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="showPedidos(item.id)">
-      <h2>Pedido Nº: {{ item.id }} </h2>
-      <h2>Data: {{ item.instante }} </h2>
-    </button>
-  </ion-list>
+  <ion-card>
+    <ion-card-header>
+      <button ion-item *ngFor="let item of items" (click)="showPedidos(item.id)">
+        <p><strong>Pedido Nº: {{ item.id }} </strong></p>
+        <p>Data: {{ item.instante }} </p>
+      </button>
+    </ion-card-header>
+  </ion-card>
 
-  <ion-item ion-item *ngIf="isEmpty(items)">
-    <h2 class="pedidosempty">Você ainda não tem pedidos</h2>
-    <button ion-button block outline (click)="goOn()">Ver Produtos</button>
-  </ion-item>
+  <div id="btn-goProds" *ngIf="isEmpty(items)">
+    <p>Você ainda não tem pedidos</p>
+    <button ion-button (click)="goOn()">Ver Produtos</button>
+  </div>
 
 </ion-content>
