@@ -53,18 +53,15 @@ export class SignupPage {
   }
 
   buscaCEP() {
-    var validacep = /^[0-9]{8}$/;
-    if (validacep.test(this.formGroup.value.cep)) {
-      this.endereco.findEnderecoByCEP(this.formGroup.value.cep)
-        .subscribe(response => {
-          this.formGroup.controls.logradouro.setValue(response['logradouro']);
-          this.formGroup.controls.bairro.setValue(response['bairro']);
-          this.formGroup.controls.estado.setValue(response['uf']);
-          this.formGroup.controls.cidade.setValue(response['localidade']);
-        },
-          error => {
-          });
-    }
+    this.endereco.findEnderecoByCEP(this.formGroup.value.cep)
+      .subscribe(response => {
+        this.formGroup.controls.logradouro.setValue(response['logradouro']);
+        this.formGroup.controls.bairro.setValue(response['bairro']);
+        this.formGroup.controls.estado.setValue(response['uf']);
+        this.formGroup.controls.cidade.setValue(response['localidade']);
+      },
+        error => {
+        });
   }
 
   signupUser() {

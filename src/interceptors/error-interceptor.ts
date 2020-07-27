@@ -23,9 +23,6 @@ export class ErrorInterceptor implements HttpInterceptor {
                     errorObj = JSON.parse(errorObj);
                 }
 
-                console.log("Erro detectado pelo interceptor:");
-                console.log(errorObj);
-
                 switch (errorObj.status) {
                     case 401:
                         this.handle401();
@@ -75,7 +72,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     handle404() {
         let alert = this.alertCtl.create({
             title: 'Erro 404',
-            message: 'Informação não encontrado',
+            message: 'Informação não encontrada',
             enableBackdropDismiss: false,
             buttons: [{ text: 'OK' }]
         });
@@ -105,7 +102,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     private listErrors(messages: FieldMessage[]): string {
         let s: string = '';
         for (var i = 0; i < messages.length; i++) {
-            s = s + '<p><strong>' + messages[i].fieldName + '</strong>: ' + messages[i].message
+            s = s + '<p><strong>' + messages[i].fieldName + '</strong>: ' + messages[i].message + '</p>'
         }
         return s;
     }
