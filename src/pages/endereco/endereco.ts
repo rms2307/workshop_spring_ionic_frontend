@@ -1,3 +1,4 @@
+import { EnderecoService } from './../../services/domain/endereco.service';
 import { EnderecoDTO } from './../../models/endereco.dto';
 import { StorageService } from './../../services/storage.service';
 import { Component } from '@angular/core';
@@ -13,13 +14,16 @@ export class EnderecoPage {
 
   enderecos: EnderecoDTO[];
   cli_id: string;
+  estado: string;
+  cidade: string;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public clienteService: ClienteService,
     public storage: StorageService,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,
+    public endereco: EnderecoService) {
   }
 
   ionViewDidLoad() {
@@ -28,13 +32,24 @@ export class EnderecoPage {
       this.clienteService.findByEmail(localUser.email)
         .subscribe(response => {
           this.enderecos = response['enderecos'];
-          this.cli_id = response['id']
+          this.cli_id = response['id'];
+          this.loadCidadeEstadoByCEP();
         },
           error => { });
     }
   }
 
-  goEditOrAdd(cli_id, endereco_id, logradouro, numero, complemento, bairro, cep, cidadeId, estadoId) {
+  loadCidadeEstadoByCEP() {
+    for (var i = 0; i < this.enderecos.length; i++) {
+      this.endereco.findEnderecoByCEP(this.enderecos[i].cep)
+        .subscribe(response => {
+          this.cidade = response['localidade'];
+          this.estado = response['uf'];
+        });
+    }
+  }
+
+  goEditOrAdd(cli_id, endereco_id, logradouro, numero, complemento, bairro, cep, cidade, estado) {
     this.navCtrl.push('NovoEditarEnderecoPage', {
       cli_id: cli_id,
       endereco_id: endereco_id,
@@ -43,8 +58,8 @@ export class EnderecoPage {
       complemento: complemento,
       bairro: bairro,
       cep: cep,
-      cidadeId: cidadeId,
-      estadoId: estadoId
+      cidade: cidade,
+      estado: estado
     });
   }
 

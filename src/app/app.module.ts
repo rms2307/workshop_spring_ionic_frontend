@@ -1,3 +1,4 @@
+import { EnderecoService } from './../services/domain/endereco.service';
 import { PedidoService } from './../services/domain/pedido.service';
 import { CartService } from './../services/domain/cart.service';
 import { ProdutoService } from './../services/domain/produto.service';
@@ -51,6 +52,7 @@ import { Camera } from '@ionic-native/camera';
     CidadeService,
     EstadoService,
     Camera,
+    EnderecoService,
   ]
 })
 export class AppModule { }

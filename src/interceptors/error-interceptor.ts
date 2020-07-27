@@ -75,7 +75,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     handle404() {
         let alert = this.alertCtl.create({
             title: 'Erro 404',
-            message: 'Objeto não encontrado',
+            message: 'Informação não encontrado',
             enableBackdropDismiss: false,
             buttons: [{ text: 'OK' }]
         });

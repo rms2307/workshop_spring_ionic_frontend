@@ -1,3 +1,4 @@
+import { EnderecoService } from './../../services/domain/endereco.service';
 import { ClienteService } from './../../services/domain/cliente.service';
 import { EstadoDTO } from './../../models/estado.dto';
 import { CidadeService } from './../../services/domain/cidade.service';
@@ -28,40 +29,35 @@ export class NovoEditarEnderecoPage {
     public estadoService: EstadoService,
     public clienteService: ClienteService,
     public alertCtrl: AlertController,
-    public storage: StorageService) {
+    public storage: StorageService,
+    public endereco: EnderecoService) {
 
     this.formGroup = this.formBuilder.group({
       logradouro: [this.navParams.get('logradouro'), [Validators.required]],
       numero: [this.navParams.get('numero'), [Validators.required]],
-      complemento: [this.navParams.get('complemento'), [Validators.required]],
+      complemento: [this.navParams.get('complemento')],
       bairro: [this.navParams.get('bairro'), [Validators.required]],
       cep: [this.navParams.get('cep'), [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
-      estado_id: [null, [Validators.required]],
-      cidade_id: [null, [Validators.required]]
+      estado: [this.navParams.get('estado'), [Validators.required]],
+      cidade: [this.navParams.get('cidade'), [Validators.required]]
     });
   }
 
   ionViewDidLoad() {
     this.endereco_id = this.navParams.get('endereco_id');
-    this.estadoService.findAll()
-      .subscribe(response => {
-        this.estados = response;
-        if (this.navParams.get('estadoId')) {
-          this.formGroup.controls.estado_id.setValue(this.navParams.get('estadoId'));
-        } else {
-          this.formGroup.controls.estado_id.setValue(this.estados[0].id);
-        }
-        this.updateCidades();
-      },
-        error => { })
   }
 
-  updateCidades() {
-    let estado_id = this.formGroup.value.estado_id;
-    this.cidadeService.findAll(estado_id)
+  buscaCEP() {
+    this.endereco.findEnderecoByCEP(this.formGroup.value.cep)
       .subscribe(response => {
-        this.cidades = response;
-        this.formGroup.controls.cidade_id.setValue(this.navParams.get('cidadeId'));
+        let logradouro = response['logradouro'];
+        let bairro = response['bairro'];
+        let cidade = response['localidade'];
+        let estado = response['uf'];
+        this.formGroup.controls.logradouro.setValue(logradouro);
+        this.formGroup.controls.bairro.setValue(bairro);
+        this.formGroup.controls.cidade.setValue(cidade);
+        this.formGroup.controls.estado.setValue(estado);
       },
         error => { });
   }

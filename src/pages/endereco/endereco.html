@@ -19,13 +19,13 @@
         endereco?.complemento,
         endereco?.bairro,
         endereco?.cep,
-        endereco?.cidade.id,
-        endereco?.cidade.estado.id)"></ion-icon>
-
-      <h2>{{endereco?.logradouro}}, {{endereco?.numero}}</h2>
-      <p>{{endereco?.complemento}}, {{endereco?.bairro}}, CEP {{endereco?.cep}}</p>
-      <p>{{endereco?.cidade.nome}}, {{endereco?.cidade.estado.nome}}</p>
-
+        cidade,
+        estado)"></ion-icon>
+      <p><strong>{{endereco?.logradouro}}, {{endereco?.numero}}</strong></p>
+      <p *ngIf="endereco?.complemento">{{endereco?.complemento}}</p>
+      <p>{{endereco?.bairro}}</p>
+      <p>CEP : {{endereco?.cep}}</p>
+      <p>{{cidade}}, {{estado}}</p>
     </ion-item>
   </ion-list>
 

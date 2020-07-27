@@ -1,3 +1,4 @@
+import { EnderecoService } from './../../services/domain/endereco.service';
 import { ClienteService } from './../../services/domain/cliente.service';
 import { CidadeDTO } from './../../models/cidade.dto';
 import { EstadoService } from './../../services/domain/estado.service';
@@ -27,7 +28,8 @@ export class SignupPage {
     public cidadeService: CidadeService,
     public estadoService: EstadoService,
     public clienteSerice: ClienteService,
-    public alertCtrl: AlertController,) {
+    public alertCtrl: AlertController,
+    public endereco: EnderecoService,) {
 
     this.formGroup = this.formBuilder.group({
       nome: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(120)]],
@@ -39,35 +41,33 @@ export class SignupPage {
       numero: ['', [Validators.required]],
       complemento: ['', []],
       bairro: ['', [Validators.required]],
-      cep: ['', [Validators.required]],
+      cep: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
       telefone: ['', [Validators.required]],
-      estadoId: [null, [Validators.required]],
-      cidadeId: [null, [Validators.required]]
+      estado: ['', [Validators.required]],
+      cidade: ['', [Validators.required]]
     });
   }
 
   ionViewDidLoad() {
-    this.estadoService.findAll()
-      .subscribe(response => {
-        this.estados = response;
-        this.formGroup.controls.estadoId.setValue(this.estados[0].id);
-        this.updateCidades();
-      },
-        error => { })
+
   }
 
-  updateCidades() {
-    let estado_id = this.formGroup.value.estadoId;
-    this.cidadeService.findAll(estado_id)
-      .subscribe(response => {
-        this.cidades = response;
-        this.formGroup.controls.cidadeId.setValue(null);
-      },
-        error => { })
+  buscaCEP() {
+    var validacep = /^[0-9]{8}$/;
+    if (validacep.test(this.formGroup.value.cep)) {
+      this.endereco.findEnderecoByCEP(this.formGroup.value.cep)
+        .subscribe(response => {
+          this.formGroup.controls.logradouro.setValue(response['logradouro']);
+          this.formGroup.controls.bairro.setValue(response['bairro']);
+          this.formGroup.controls.estado.setValue(response['uf']);
+          this.formGroup.controls.cidade.setValue(response['localidade']);
+        },
+          error => {
+          });
+    }
   }
 
   signupUser() {
-    console.log(this.formGroup.value);
     this.clienteSerice.insert(this.formGroup.value)
       .subscribe(response => {
         this.showInsertOk();
