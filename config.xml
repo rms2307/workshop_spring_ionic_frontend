@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.rms2307.ecommerce" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Ecommerce</name>
+    <name>Sistema de Pedidos</name>
     <description>Sistema de Ecommerce</description>
     <author email="rms2307@hotmail.com" href="https://github.com/rms2307">Robson de Moraes Silva</author>
     <content src="index.html" />
